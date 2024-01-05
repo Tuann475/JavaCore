@@ -9,7 +9,7 @@ public class CaChuon extends LopCa {
 		
 	}
 	
-	public CaChuon(String colorEyes, String colorSkin) {
+	public CaChuon(String colorEye, String colorSkin) {
 		this.colorEye = colorEye;
 		this.colorSkin = colorSkin;
 	}
