@@ -12,8 +12,8 @@ public class JavaCoreMain {
 		//System.out.println("Color eye parent: "+caChuon.getColorEye());
 		caChuon.boi();
 		//caChuon.boi("cá chuồn bơi theo kiểu của cá chuồn");
-		CaBayMau caBayMau = new CaBayMau();
-		caBayMau.boi();
+		//CaBayMau caBayMau = new CaBayMau();
+		//caBayMau.boi();
 		//caBayMau.boi("cá bảy màu bơi theo kiểu của cá bảy màu");
 		
 		
