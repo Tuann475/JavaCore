@@ -5,10 +5,7 @@ public class CaChuon extends LopCa {
 	private String colorEye;
 	private String colorSkin;
 	
-	/*protected void boi() {
-		System.out.println("cá chuồn bơi theo kiểu của cá chuồn");
-	}*/
-	
+
 	public CaChuon() {
 		
 	}
@@ -27,6 +24,11 @@ public class CaChuon extends LopCa {
 
 	public String getColorSkin() {
 		return colorSkin;
+	}
+	
+	@Override
+	protected void boi() {
+		System.out.println("cá chuồn bơi theo kiểu của cá chuồn");
 	}
 	
 }

@@ -1,17 +1,18 @@
 package com.laptrinhjavaweb.oop;
 
-public class LopCa {
+public abstract class LopCa {
 	
 	protected String colorEye;
 	protected String colorSkin;
 	
-	protected void boi() {
+/*	protected void boi() {
 		System.out.println("cá nào mà chả biết bơi");
-	}
+	}*/
+	protected abstract void boi(); 
 	
-	protected void boi(String style) {
+/*	protected void boi(String style) {
 		System.out.println(style);
-	}
+	}*/
 	public String getColorEye() {
 		return colorEye;
 	}
