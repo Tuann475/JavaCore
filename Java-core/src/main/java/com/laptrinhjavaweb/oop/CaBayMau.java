@@ -1,5 +1,5 @@
 package com.laptrinhjavaweb.oop;
 
-public class CaBayMau {
+public class CaBayMau extends LopCa {
 
 }
