@@ -11,9 +11,10 @@ public class JavaCoreMain {
 		//System.out.println("Color eye: "+caChuon.getColorEye());
 		//System.out.println("Color eye parent: "+caChuon.getColorEye());
 		caChuon.boi();
-		caChuon.boi("cá chuồn bơi theo kiểu của cá chuồn");
+		//caChuon.boi("cá chuồn bơi theo kiểu của cá chuồn");
 		CaBayMau caBayMau = new CaBayMau();
-		caBayMau.boi("cá bảy màu bơi theo kiểu của cá bảy màu");
+		caBayMau.boi();
+		//caBayMau.boi("cá bảy màu bơi theo kiểu của cá bảy màu");
 		
 		
 	}
