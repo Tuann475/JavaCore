@@ -30,8 +30,12 @@ public class JdbcMain {
 	         e.printStackTrace();
 	      }*/
 		   try {
-			   System.out.println(10/0);
+			   Integer value1 = 0/10;
+			   System.out.println(value1);
 			   Class.forName("com.mysql.jdbc.Driver");
+			   Integer value2 = 10/0;
+			   System.out.println(value2);
+			   System.out.println("anh yêu em");
 		   }catch(ClassNotFoundException e) {
 			   System.out.print("thiếu file JAR driver rồi anh gì ơi");
 		   
