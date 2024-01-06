@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -13,32 +14,48 @@ public class JdbcMain {
 	   
 
 	   public static void main(String[] args) {
-/*		   try {
-			   Integer value1 = 0/10;
-			   System.out.println(value1);
-			   Class.forName("com.mysql.jdbc.Driver");
-			   Integer value2 = 10/0;
-			   System.out.println(value2);
-			   System.out.println("anh yêu em");
-		   }catch(ClassNotFoundException e) {
-			   System.out.print("thiếu file JAR driver rồi anh gì ơi");
-		   
-	       }catch(Exception e) {
-	    	   System.out.print("lỗi ngoại lệ rồi");
-	       }	*/	   
 		   
 		   //beginer
+		   //input
+		   String name =null;
+		   String street = null;
+		   String district =null;
+		   String ward = null;
+		   Integer floorArea = null;
+		   Integer numberOfBasement=null;
+		   
 		   Connection conn = null;
 		   Statement stmt = null;
 		   ResultSet rs = null;
 		      try {
-		    	  String query = "SELECT * FROM buildings";
+		    	  String query = "SELECT * FROM building where 1 = 1";
+		    	  // build sql query
+		    	  if ( name != null && name != "") {
+		    		  query += "and name like '%"+ name + "%'";
+		    	  }
+		    	  if ( street != null && street != "") {
+		    		  query += "and street like '%"+ street + "%'";
+		    	  }
+		    	  if ( district != null && district != "") {
+		    		  query += "and district like '%"+ district + "%'";
+		    	  }
+		    	  if ( ward != null && ward != "") {
+		    		  query += "and ward like '%"+ ward + "%'";
+		    	  }
+		    	  if ( floorArea != null ) {
+		    		  query += "and floorArea like "+ floorArea + "";
+		    	  }
+		    	  if ( numberOfBasement != null ) {
+		    		  query += "and numberOfBasement like "+ numberOfBasement + "";
+		    	  } 
+		    	  
 		    	  Class.forName("com.mysql.jdbc.Driver");
 		    	  conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			      stmt = conn.createStatement();
-			      rs = stmt.executeQuery(query);		      
+			      rs = stmt.executeQuery(query);	
+			      ResultSetMetaData rsmd = rs.getMetaData();
 		 	         while(rs.next()){
-		 	            //Display values
+		 	        	System.out.print("Id: " + rs.getLong("id")+ ", Type: "+rsmd.getColumnType(2));
 		 	            System.out.print("Name: " + rs.getString("name"));
 		 	            System.out.print(", Street: " + rs.getString("street"));
 		 	            System.out.print(", District: " + rs.getString("district"));
