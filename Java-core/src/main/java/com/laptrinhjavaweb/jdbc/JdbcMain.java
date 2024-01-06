@@ -28,7 +28,7 @@ public class JdbcMain {
 		   Statement stmt = null;
 		   ResultSet rs = null;
 		      try {
-		    	  String query = "SELECT * FROM building where 1 = 1";
+/*		    	  StringBuilder query = new StringBuilder("SELECT * FROM building where 1 = 1");
 		    	  // build sql query
 		    	  if ( name != null && name != "") {
 		    		  query += "and name like '%"+ name + "%'";
@@ -47,12 +47,30 @@ public class JdbcMain {
 		    	  }
 		    	  if ( numberOfBasement != null ) {
 		    		  query += "and numberOfBasement like "+ numberOfBasement + "";
+		    	  } */
+		    	  StringBuilder query = new StringBuilder("SELECT * FROM building where 1 = 1");
+		    	  if ( name != null && name != "") {
+		    		  query.append("and name like '%"+ name + "%'");
+		    	  }
+		    	  if ( street != null && street != "") {
+		    		  query.append("and street like '%"+ street + "%'");
+		    	  }
+		    	  if ( district != null && district != "") {
+		    		  query.append("and district like '%"+ district + "%'");
+		    	  }
+		    	  if ( ward != null && ward != "") {
+		    		  query.append("and ward like '%"+ ward + "%'");
+		    	  }
+		    	  if ( floorArea != null ) {
+		    		  query.append("and floorArea like "+ floorArea + "");
+		    	  }
+		    	  if ( numberOfBasement != null ) {
+		    		  query.append("and numberOfBasement like "+ numberOfBasement + "");
 		    	  } 
-		    	  
 		    	  Class.forName("com.mysql.jdbc.Driver");
 		    	  conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			      stmt = conn.createStatement();
-			      rs = stmt.executeQuery(query);	
+			      rs = stmt.executeQuery(query.toString());	
 			      ResultSetMetaData rsmd = rs.getMetaData();
 		 	         while(rs.next()){
 		 	        	System.out.print("Id: " + rs.getLong("id")+ ", Type: "+rsmd.getColumnType(2));
