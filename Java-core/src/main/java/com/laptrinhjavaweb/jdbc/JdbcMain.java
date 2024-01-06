@@ -13,22 +13,6 @@ public class JdbcMain {
 	   static final String QUERY = "SELECT * FROM building";
 
 	   public static void main(String[] args) {
-	      // Open a connection
-/*	      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-	         Statement stmt = conn.createStatement();
-	         ResultSet rs = stmt.executeQuery(QUERY);
-	      ) {		      
-	         while(rs.next()){
-	            //Display values
-	            System.out.print("Name: " + rs.getString("name"));
-	            System.out.print(", Street: " + rs.getString("street"));
-	            System.out.print(", District: " + rs.getString("district"));
-	            System.out.print(", ward: " + rs.getString("ward"));
-	            System.out.println(", FloorArea: " + rs.getString("FloorArea"));
-	         }
-	      } catch (SQLException e) {
-	         e.printStackTrace();
-	      }*/
 /*		   try {
 			   Integer value1 = 0/10;
 			   System.out.println(value1);
@@ -42,7 +26,8 @@ public class JdbcMain {
 	       }catch(Exception e) {
 	    	   System.out.print("lỗi ngoại lệ rồi");
 	       }	*/	   
-		   //beginer
+		   
+/*		   //beginer
 		      try {
 		    	  Class.forName("com.mysql.jdbc.Driver");
 		    	  Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -61,6 +46,21 @@ public class JdbcMain {
 		 	         rs.close();
 		 	      } catch (ClassNotFoundException | SQLException e) {
 		 	         System.out.println("Error: " +e.getMessage());
+		 	      }*/
+		      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		 	         Statement stmt = conn.createStatement();
+		 	         ResultSet rs = stmt.executeQuery(QUERY);
+		 	      ){ 
+		 	         while(rs.next()){
+		 	        	System.out.print("Id: " + rs.getLong("id"));
+		 	            System.out.print(", Name: " + rs.getString("name"));
+		 	            System.out.print(", Street: " + rs.getString("street"));
+		 	            System.out.print(", District: " + rs.getString("district"));
+		 	            System.out.print(", ward: " + rs.getString("ward"));
+		 	            System.out.println(", FloorArea: " + rs.getString("FloorArea"));
+		 	         }
+		 	      } catch (SQLException e) {
+		 	    	 e.printStackTrace();
 		 	      }
 		 	      
 	   }
