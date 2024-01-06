@@ -29,7 +29,7 @@ public class JdbcMain {
 	      } catch (SQLException e) {
 	         e.printStackTrace();
 	      }*/
-		   try {
+/*		   try {
 			   Integer value1 = 0/10;
 			   System.out.println(value1);
 			   Class.forName("com.mysql.jdbc.Driver");
@@ -41,7 +41,24 @@ public class JdbcMain {
 		   
 	       }catch(Exception e) {
 	    	   System.out.print("lỗi ngoại lệ rồi");
-	       }		   
+	       }	*/	   
 		   //
+		      try {
+		    	  Class.forName("com.mysql.jdbc.Driver");
+		    	  Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+			      Statement stmt = conn.createStatement();
+			      ResultSet rs = stmt.executeQuery(QUERY);		      
+		 	         while(rs.next()){
+		 	            //Display values
+		 	            System.out.print("Name: " + rs.getString("name"));
+		 	            System.out.print(", Street: " + rs.getString("street"));
+		 	            System.out.print(", District: " + rs.getString("district"));
+		 	            System.out.print(", ward: " + rs.getString("ward"));
+		 	            System.out.println(", FloorArea: " + rs.getString("FloorArea"));
+		 	         }
+		 	      } catch (ClassNotFoundException | SQLException e) {
+		 	         System.out.println("Error: " +e.getMessage());
+		 	      }
+		 	      
 	   }
 }
