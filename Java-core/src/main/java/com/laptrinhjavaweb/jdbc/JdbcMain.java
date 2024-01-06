@@ -56,6 +56,9 @@ public class JdbcMain {
 		 	            System.out.print(", ward: " + rs.getString("ward"));
 		 	            System.out.println(", FloorArea: " + rs.getString("FloorArea"));
 		 	         }
+		 	         conn.close();
+		 	         stmt.close();
+		 	         rs.close();
 		 	      } catch (ClassNotFoundException | SQLException e) {
 		 	         System.out.println("Error: " +e.getMessage());
 		 	      }
