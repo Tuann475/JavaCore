@@ -42,7 +42,7 @@ public class JdbcMain {
 	       }catch(Exception e) {
 	    	   System.out.print("lỗi ngoại lệ rồi");
 	       }	*/	   
-		   //
+		   //beginer
 		      try {
 		    	  Class.forName("com.mysql.jdbc.Driver");
 		    	  Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
