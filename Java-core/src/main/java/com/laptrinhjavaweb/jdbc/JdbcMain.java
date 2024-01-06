@@ -14,7 +14,7 @@ public class JdbcMain {
 
 	   public static void main(String[] args) {
 	      // Open a connection
-	      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+/*	      try(Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 	         Statement stmt = conn.createStatement();
 	         ResultSet rs = stmt.executeQuery(QUERY);
 	      ) {		      
@@ -28,6 +28,16 @@ public class JdbcMain {
 	         }
 	      } catch (SQLException e) {
 	         e.printStackTrace();
-	      }
+	      }*/
+		   try {
+			   System.out.println(10/0);
+			   Class.forName("com.mysql.jdbc.Driver");
+		   }catch(ClassNotFoundException e) {
+			   System.out.print("thiếu file JAR driver rồi anh gì ơi");
+		   
+	       }catch(Exception e) {
+	    	   System.out.print("lỗi ngoại lệ rồi");
+	       }		   
+		   //
 	   }
 }
