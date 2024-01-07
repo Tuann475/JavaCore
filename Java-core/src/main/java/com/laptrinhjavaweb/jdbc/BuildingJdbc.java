@@ -7,7 +7,10 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcMain {
+import com.laptrinhjavaweb.utils.IntegerUtils;
+import com.laptrinhjavaweb.utils.StringUtils;
+
+public class BuildingJdbc {
 	   static final String DB_URL = "jdbc:mysql://localhost:3306/javacore";
 	   static final String USER = "root";
 	   static final String PASS = "123321";
@@ -28,45 +31,22 @@ public class JdbcMain {
 		   Statement stmt = null;
 		   ResultSet rs = null;
 		      try {
-/*		    	  StringBuilder query = new StringBuilder("SELECT * FROM building where 1 = 1");
-		    	  // build sql query
-		    	  if ( name != null && name != "") {
-		    		  query += "and name like '%"+ name + "%'";
-		    	  }
-		    	  if ( street != null && street != "") {
-		    		  query += "and street like '%"+ street + "%'";
-		    	  }
-		    	  if ( district != null && district != "") {
-		    		  query += "and district like '%"+ district + "%'";
-		    	  }
-		    	  if ( ward != null && ward != "") {
-		    		  query += "and ward like '%"+ ward + "%'";
-		    	  }
-		    	  if ( floorArea != null ) {
-		    		  query += "and floorArea like "+ floorArea + "";
-		    	  }
-		    	  if ( numberOfBasement != null ) {
-		    		  query += "and numberOfBasement like "+ numberOfBasement + "";
-		    	  } */
-		    	  StringBuilder query = new StringBuilder("SELECT * FROM building where 1 = 1");
-		    	  if ( name != null && name != "") {
+		    	  StringBuilder query = new StringBuilder("SELECT * FROM Building where 1 = 1");
+	    	  if (!StringUtils.isNullOrEmty(name)) {
 		    		  query.append("and name like '%"+ name + "%'");
 		    	  }
-		    	  if ( street != null && street != "") {
+		    	  if (!StringUtils.isNullOrEmty(street)) {
 		    		  query.append("and street like '%"+ street + "%'");
 		    	  }
-		    	  if ( district != null && district != "") {
+		    	  if (!StringUtils.isNullOrEmty(district)) {
 		    		  query.append("and district like '%"+ district + "%'");
 		    	  }
-		    	  if ( ward != null && ward != "") {
+		    	  if (!StringUtils.isNullOrEmty(ward)) {
 		    		  query.append("and ward like '%"+ ward + "%'");
 		    	  }
-		    	  if ( floorArea != null ) {
+		    	  if (IntegerUtils.isNullOrZero(floorArea)) {
 		    		  query.append("and floorArea like "+ floorArea + "");
 		    	  }
-		    	  if ( numberOfBasement != null ) {
-		    		  query.append("and numberOfBasement like "+ numberOfBasement + "");
-		    	  } 
 		    	  Class.forName("com.mysql.jdbc.Driver");
 		    	  conn = DriverManager.getConnection(DB_URL, USER, PASS);
 			      stmt = conn.createStatement();
