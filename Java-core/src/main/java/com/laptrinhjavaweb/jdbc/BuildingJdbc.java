@@ -7,6 +7,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.utils.IntegerUtils;
 import com.laptrinhjavaweb.utils.StringUtils;
 
@@ -31,7 +32,7 @@ public class BuildingJdbc {
 		   Statement stmt = null;
 		   ResultSet rs = null;
 		      try {
-		    	  StringBuilder query = new StringBuilder("SELECT * FROM Building where 1 = 1");
+		    	  StringBuilder query = new StringBuilder("SELECT * FROM Building "+SystemConstant.ONE_EQUAL_ONE+"");
 	    	  if (!StringUtils.isNullOrEmty(name)) {
 		    		  query.append("and name like '%"+ name + "%'");
 		    	  }

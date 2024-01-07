@@ -7,6 +7,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.utils.IntegerUtils;
 import com.laptrinhjavaweb.utils.StringUtils;
 
@@ -26,7 +27,7 @@ public class AccountJdbc {
 		   Statement stmt = null;
 		   ResultSet rs = null;
 		      try {
-		    	  StringBuilder query = new StringBuilder("SELECT * FROM customer where 1 = 1");
+		    	  StringBuilder query = new StringBuilder("SELECT * FROM account"+SystemConstant.ONE_EQUAL_ONE+"");
 	    	  if (!StringUtils.isNullOrEmty(userName)) {
 		    		  query.append("and userName like '%"+ userName + "%'");
 		    	  }
