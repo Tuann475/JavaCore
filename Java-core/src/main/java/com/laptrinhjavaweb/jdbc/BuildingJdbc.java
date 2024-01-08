@@ -8,15 +8,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
+import com.laptrinhjavaweb.utils.ConnectionUtils;
 import com.laptrinhjavaweb.utils.IntegerUtils;
 import com.laptrinhjavaweb.utils.StringUtils;
 
 public class BuildingJdbc {
-	   static final String DB_URL = "jdbc:mysql://localhost:3306/javacore";
-	   static final String USER = "root";
-	   static final String PASS = "123321";
-	   
-
+	
 	   public static void main(String[] args) {
 		   
 		   //beginer
@@ -48,8 +45,9 @@ public class BuildingJdbc {
 		    	  if (IntegerUtils.isNullOrZero(floorArea)) {
 		    		  query.append("and floorArea like "+ floorArea + "");
 		    	  }
+		    	  
 		    	  Class.forName("com.mysql.jdbc.Driver");
-		    	  conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		    	  conn = ConnectionUtils.getConnection();
 			      stmt = conn.createStatement();
 			      rs = stmt.executeQuery(query.toString());	
 			      ResultSetMetaData rsmd = rs.getMetaData();
