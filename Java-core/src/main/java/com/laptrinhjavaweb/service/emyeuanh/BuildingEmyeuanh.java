@@ -1,7 +1,8 @@
-package com.laptrinhjavaweb.model;
+package com.laptrinhjavaweb.service.emyeuanh;
 
-public class BuildingModel {
-
+public class BuildingEmyeuanh {
+	
+	private Long id;
 	private String name;
 	private String address;
 	private String street;
@@ -57,4 +58,13 @@ public class BuildingModel {
 	public void setFloorArea(Integer floorArea) {
 		this.floorArea = floorArea;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }

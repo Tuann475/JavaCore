@@ -18,11 +18,11 @@ public class BuildingJdbc {
 		   
 		   //beginer
 		   //input
-		   String name =null;
+		   String name ="1";
 		   String street = null;
 		   String district =null;
 		   String ward = null;
-		   Integer floorArea = null;
+		   Integer floorArea = 100;
 		   Integer numberOfBasement=null;
 		   
 		   Connection conn = null;
