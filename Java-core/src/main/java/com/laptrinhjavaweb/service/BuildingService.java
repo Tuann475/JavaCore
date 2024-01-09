@@ -3,10 +3,10 @@ package com.laptrinhjavaweb.service;
 import java.util.List;
 
 import com.laptrinhjavaweb.input.BuildingSearchInput;
-import com.laptrinhjavaweb.service.emyeuanh.BuildingEmyeuanh;
+import com.laptrinhjavaweb.output.BuildingOutPut;
 
 public interface BuildingService {
 
-	List<BuildingEmyeuanh> findBuilding(BuildingSearchInput buildingModel);
+	List<BuildingOutPut> findBuilding(BuildingSearchInput buildingModel);
 
 }

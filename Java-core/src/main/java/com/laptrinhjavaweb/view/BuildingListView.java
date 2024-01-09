@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.laptrinhjavaweb.controller.BuildingController;
 import com.laptrinhjavaweb.dto.BuildingDTO;
+import com.laptrinhjavaweb.input.BuildingSearchInput;
+import com.laptrinhjavaweb.output.BuildingOutPut;
 
 
 public class BuildingListView {
@@ -22,7 +24,7 @@ public class BuildingListView {
 		   buildingSearch.setStreet(street);
 		   buildingSearch.setDistrict(district);
 		   BuildingController buildingController = new BuildingController();
-		   List<BuildingDTO> buildings = buildingController.findBuilding(buildingSearch);
+		   List<BuildingOutPut> buildings = buildingController.findBuilding(buildingSearch);
 		   System.out.println("test");
 /*		   for (BuildingModel item: buildings) {
 			   
