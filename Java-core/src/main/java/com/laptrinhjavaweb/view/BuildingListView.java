@@ -1,7 +1,10 @@
 package com.laptrinhjavaweb.view;
 
+import java.util.List;
+
 import com.laptrinhjavaweb.controller.BuildingController;
 import com.laptrinhjavaweb.model.BuildingModel;
+
 
 public class BuildingListView {
 	
@@ -12,7 +15,6 @@ public class BuildingListView {
 		   String street = null;
 		   String district =null;
 		   
-		   
 		   BuildingModel buildingSearch = new BuildingModel();
 		   buildingSearch.setFloorArea(floorArea);
 		   buildingSearch.setName(name);
@@ -20,9 +22,9 @@ public class BuildingListView {
 		   buildingSearch.setStreet(street);
 		   buildingSearch.setDistrict(district);
 		   BuildingController buildingController = new BuildingController();
-		   BuildingModel[] buildings = buildingController.findBuilding(buildingSearch);
+		   List<BuildingModel> buildings = buildingController.findBuilding(buildingSearch);
+		   System.out.println("test");
 /*		   for (BuildingModel item: buildings) {
 			   
-		   }*/
-	}
+		   }*/	}
 }

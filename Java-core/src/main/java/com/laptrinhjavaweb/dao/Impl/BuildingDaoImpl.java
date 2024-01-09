@@ -5,19 +5,22 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.laptrinhjavaweb.constant.SystemConstant;
 import com.laptrinhjavaweb.dao.BuildingDao;
 import com.laptrinhjavaweb.dao.anhyeuem.BuildingAnhyeuem;
 import com.laptrinhjavaweb.utils.ConnectionUtils;
-import com.laptrinhjavaweb.utils.IntegerUtils;
+
 import com.laptrinhjavaweb.utils.StringUtils;
 
 public class BuildingDaoImpl implements BuildingDao {
 
 	@Override
-	public BuildingAnhyeuem[] findBuilding(Integer floorArea, String name, String ward, String street, String district) {
-		   BuildingAnhyeuem[] results = new BuildingAnhyeuem[] {};
+	public List<BuildingAnhyeuem> findBuilding(Integer floorArea, String name, String ward, String street, String district) {
+		   //BuildingAnhyeuem[] results = new BuildingAnhyeuem[] {};
+		   List<BuildingAnhyeuem> results = new ArrayList<>();
 		   Connection conn = null;
 		   Statement stmt = null;
 		   ResultSet rs = null;
@@ -40,8 +43,8 @@ public class BuildingDaoImpl implements BuildingDao {
 		    	  conn = ConnectionUtils.getConnection();
 			      stmt = conn.createStatement();
 			      rs = stmt.executeQuery(query.toString());	
-			      ResultSetMetaData rsmd = rs.getMetaData();
-			      int i=0;;
+			      //ResultSetMetaData rsmd = rs.getMetaData();
+			      //int i=0;;
 		 	         while(rs.next()){
 		 	        	BuildingAnhyeuem buildingAnhyeuem = new BuildingAnhyeuem();
 		 	        	buildingAnhyeuem.setName(rs.getString("name"));
@@ -49,34 +52,29 @@ public class BuildingDaoImpl implements BuildingDao {
 		 	        	buildingAnhyeuem.setWard(rs.getString("ward"));
 		 	        	buildingAnhyeuem.setDistrict(rs.getString("district"));
 		 	        	buildingAnhyeuem.setFloorArea(rs.getInt("floorArea"));
-		 	        	results[i]  =buildingAnhyeuem;
-		 	        	i++;
+		 	        	//results[i]  =buildingAnhyeuem;
+		 	        	//i++;
+		 	        	results.add(buildingAnhyeuem);
 		 	         }
 		 	         return results;
 
 		 	      } catch (ClassNotFoundException | SQLException e) {
-		 	         System.out.println("Error: " +e.getMessage());
-
-		 	      }finally {
+		 	    	 e.printStackTrace();
+		 	     } catch (Exception e) {
+		 	    	 e.printStackTrace();
+		 	     }
+		 	         finally {
 		 	    	  try {
-		 	    		  if (conn != null) {
-		 	    			  conn.close();
-		 	    		  }
-		 	    		  if (stmt != null) {
-		 	    			 stmt.close();
-		 	    		  }
-		 	    		  if (rs != null) {
-		 	    			 rs.close();
-		 	    		  }
-/*				 	         conn.close();
+
+		 	         conn.close();
 				 	         stmt.close();
-				 	         rs.close();*/
+				 	         rs.close();
 					} catch (Exception e) {
-						System.out.println("Error: " +e.getMessage());
+						 e.printStackTrace();
 					}
 
 				}
-		      return null;
+		      return new ArrayList<>();
 	   }
 	}
 
