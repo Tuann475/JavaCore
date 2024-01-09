@@ -1,6 +1,6 @@
-package com.laptrinhjavaweb.model;
+package com.laptrinhjavaweb.dto;
 
-public class BuildingModel {
+public class BuildingDTO {
 
 	private String name;
 	private String address;

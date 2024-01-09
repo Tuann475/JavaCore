@@ -6,7 +6,7 @@ import java.util.List;
 import com.laptrinhjavaweb.dao.BuildingDao;
 import com.laptrinhjavaweb.dao.Impl.BuildingDaoImpl;
 import com.laptrinhjavaweb.dao.anhyeuem.BuildingAnhyeuem;
-import com.laptrinhjavaweb.model.BuildingModel;
+import com.laptrinhjavaweb.input.BuildingSearchInput;
 import com.laptrinhjavaweb.service.BuildingService;
 import com.laptrinhjavaweb.service.emyeuanh.BuildingEmyeuanh;
 
@@ -15,7 +15,7 @@ public class BuildingServiceImpl implements BuildingService{
 	private BuildingDao buildingDao = new BuildingDaoImpl();
 	
 	@Override
-	public List<BuildingEmyeuanh> findBuilding(BuildingModel buildingModel) {
+	public List<BuildingEmyeuanh> findBuilding(BuildingSearchInput buildingModel) {
 		List<BuildingEmyeuanh> buildingEmyeuanhs = new ArrayList<>();
 		List<BuildingAnhyeuem> anhyeuems = buildingDao.findBuilding(buildingModel.getFloorArea(),buildingModel.getName(), buildingModel.getWard(), 
 				buildingModel.getStreet(), buildingModel.getDistrict());
